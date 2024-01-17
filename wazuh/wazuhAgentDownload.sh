@@ -15,10 +15,10 @@ else
 fi
 archType=($../intel/archType.sh)
 if [ "$version" -ne "Cope" && $"archType" == "x86_64" ]; then
-    echo -e "WAZUH_MANGER='$wazuhManager'" > /tmp/wazuh_envs && installer -pkg wazuh-agent-4.7.1-1.intel64.pkg -target /
+    echo -e "WAZUH_MANGER='$wazuhManager'" > /tmp/wazuh_envs && installer -pkg wazuh-agent-4.7.2-1.intel64.pkg -target /
 elif [ "$version" == "Big Sur" || "$version" == "Monterey" || "$version" == "Ventura" || "$version" == "Sonoma" ]; then
     if [ "$archType" == "arm64"]; then
-        echo -e "WAZUH_MANAGER='$wazuhManager'" > /tmp/wazuh_envs && installer -pkg wazuh-agent-4.7.1-1.arm64.pkg -target /
+        echo -e "WAZUH_MANAGER='$wazuhManager'" > /tmp/wazuh_envs && installer -pkg wazuh-agent-4.7.2-1.arm64.pkg -target /
     fi
 else
     echo "This is to old we F'ed"
