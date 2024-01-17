@@ -2,19 +2,21 @@
 
 v=$(system_profiler SPSoftwareDataType | grep "System Version:" | awk '{print $3 " " $4 " " $5}')
 vNmb=$(echo $v | awk '{print $2}')
+vMNmb=$(echo "$vNmb" | cut -d'.' -f1)
+echo "$vMNmb"
 if [ "$vNmb" == "10.13" ]; then
     vNm="High Sierra"
 elif [ "$vNmb" == "10.14" ]; then
     vNm="Mojave"
 elif [ "$vNmb" == "10.15" ]; then
     vNm="Catalina"
-elif [ "$vNmb" == "11" ]; then
+elif [ "$vMNmb" == "11" ]; then
     vNm="Big Sur"
-elif [ "$vNmb" == "12" ]; then
+elif [ "$vMNmb" == "12" ]; then
     vNm="Monterey"
-elif [ "$vNmb" == "13" ]; then
+elif [ "$vMNmb" == "13" ]; then
     vNm="Ventura"
-elif [ "$vNmb" == "14" ]; then
+elif [ "$vMNmb" == "14" ]; then
     vNm="Sonoma"
 else
     echo "we are F-ed, this shit is oooooooooolddddd"
