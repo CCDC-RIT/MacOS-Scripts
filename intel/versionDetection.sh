@@ -1,10 +1,16 @@
 #!/bin/bash
 
+if [ "$EUID" -ne 0 ]; then 
+  echo "Must run as superuser"
+  exit
+fi
+
 v=$(system_profiler SPSoftwareDataType | grep "System Version:" | awk '{print $3 " " $4 " " $5}')
 vNmb=$(echo $v | awk '{print $2}')
 vMNmb=$(echo "$vNmb" | cut -d'.' -f1)
-echo "$vMNmb"
-if [ "$vNmb" == "10.13" ]; then
+if [ "$vNmb" == "10.12" ]; then
+    vNm="Sierra"
+elif [ "$vNmb" == "10.13" ]; then
     vNm="High Sierra"
 elif [ "$vNmb" == "10.14" ]; then
     vNm="Mojave"
@@ -19,7 +25,7 @@ elif [ "$vMNmb" == "13" ]; then
 elif [ "$vMNmb" == "14" ]; then
     vNm="Sonoma"
 else
-    echo "we are F-ed, this shit is oooooooooolddddd"
+    echo "Cope"
     exit
 fi
 echo "$v $vNm"
