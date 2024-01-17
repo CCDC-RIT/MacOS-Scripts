@@ -13,8 +13,10 @@ fi
 brew update
 brew upgrade
 
+#common packs
 brew install git curl vim tcpdump lynis net-tools tmux nmap fail2ban psad debsums clamav snoopy auditd
 
 #linpeas
 curl -L https://github.com/carlospolop/PEASS-ng/releases/latest/download/linpeas.sh | sh
 
+#
